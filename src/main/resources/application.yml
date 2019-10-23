@@ -6,7 +6,9 @@ spring:
           uri: http://localhost:9300
           filters:
             - AddRequestHeader=access_key, f7093272-387e-4518-8102-543ce8b786c8
-            - PrefixPath=/v1
+            - AddRequestHeader=checksum, b275dd0fbcc3b0f0679f6eb8492a1e27e882bea9
+            - AddRequestHeader=timestamp, 12345678
           predicates:
+            - Method=GET
 server:
   port: 8888
