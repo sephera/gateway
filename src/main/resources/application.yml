@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: method_route
+          uri: http://localhost:9300
+          filters:
+            - AddRequestHeader=access_key, f7093272-387e-4518-8102-543ce8b786c8
+            - PrefixPath=/v1
+          predicates:
+server:
+  port: 8888
