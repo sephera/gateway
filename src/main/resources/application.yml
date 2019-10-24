@@ -11,5 +11,7 @@ spring:
             - AddRequestHeader=checksum, b275dd0fbcc3b0f0679f6eb8492a1e27e882bea9
             - AddRequestHeader=timestamp, 12345678
             - RewritePath=/acs/v1(?<segment>/?.*), $\{segment}
+            - PreProxy
+            - PostProxy
 server:
   port: 8888
