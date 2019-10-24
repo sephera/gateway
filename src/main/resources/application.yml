@@ -7,11 +7,9 @@ spring:
           predicates:
             - Path=/acs/v1/**
           filters:
-            - AddRequestHeader=access_key, f7093272-387e-4518-8102-543ce8b786c8
-            - AddRequestHeader=checksum, b275dd0fbcc3b0f0679f6eb8492a1e27e882bea9
-            - AddRequestHeader=timestamp, 12345678
+            - PreProxy=header1,value1,header2,value2
+            - PostProxy=header3,value3,header4,value4
+            - AddRequestHeader=access_key, f7093272-387e-4518-8102-543ce8b786c8,checksum, b275dd0fbcc3b0f0679f6eb8492a1e27e882bea9,timestamp, 12345678
             - RewritePath=/acs/v1(?<segment>/?.*), $\{segment}
-            - PreProxy
-            - PostProxy
 server:
   port: 8888
